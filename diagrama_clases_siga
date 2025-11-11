@@ -1,0 +1,38 @@
+// Diagrama de Clases SIGA
+digraph {
+	rankdir=TB
+	Producto [label="Producto
+| 
+| - id: String
+| - nombre: String
+| - precio: Double
+| - stock: Int
+|
+| + actualizarStock()
+| + buscar()" shape=record]
+	Venta [label="Venta
+|
+| - id: String
+| - fecha: Date
+| - total: Double
+|
+| + calcularTotal()
+| + generarBoleta()" shape=record]
+	Cliente [label="Cliente
+|
+| - id: String
+| - nombre: String
+| - rut: String
+|
+| + registrar()
+| + buscar()" shape=record]
+	DetalleVenta [label="DetalleVenta
+|
+| - cantidad: Int
+| - subtotal: Double
+|
+| + calcularSubtotal()" shape=record]
+	Venta -> Producto [label="1..*" dir=none]
+	Venta -> Cliente [label=1 dir=none]
+	Venta -> DetalleVenta [label="1..*" dir=none]
+}
